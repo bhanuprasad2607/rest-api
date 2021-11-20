@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+{% block content %}
+{% if request.user.is_authenticate %}
+<a href="{% url 'logout' %}">logout</a>
+{% else %}
+<h2>Login</h2>
+<form method="POST">
+    {% csrf_token %}
+    <p class="username">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" required>
+    </p>
+    <p class="password">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+    </p>
+    <p>
+        <input type="submit" value="Login">
+    </p>
+</form>
+<p>Don't have account <a href="{% url 'register' %}">click here</a></p>
+{% endif %}
+{% endblock content %}

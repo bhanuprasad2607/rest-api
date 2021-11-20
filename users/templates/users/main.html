@@ -1,0 +1,8 @@
+{% extends 'index.html' %}
+{% block content %}
+{% if request.user.is_authenticated %}
+<A href="{% url 'detail' username %}" traget="_blank">API of User Logged in</A>
+<a href="{% url 'logout' %}">Logout</a>
+{% endif %}
+<p></p>
+{% endblock content %}
